@@ -1,0 +1,39 @@
+
+
+//MARK UP
+<div class="modal fade" id="modal-sm-warning" role="dialog">
+                    <div class="modal-dialog modal-sm" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header bg-warning">
+                                <h5 class="modal-title">WARNING MESSAGE</h5>
+                            </div>
+                            <div class="modal-body" id="modal-warning-body">
+                            </div>
+                            <div class="modal-footer">
+                                @*<button type="button" class="btn btn-default" id="modal-warning-ok" data-dismiss="modal">OK</button>*@
+                                @*<input type="button" class="btn btn-default" data-dismiss="modal" value="OK" readonly/>*@  
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+//JS
+function warningMessage (message) {
+    tmpTable = "";
+    $('#modal-warning-body').empty();
+    tmpTable += '<p>' + message + '</p>';
+    $('#modal-warning-body').append(tmpTable);
+    $('#modal-sm-warning').modal('show');
+    var btn = $("<button />", {
+        id: "modal-warning-ok",
+        class: "btn btn-default bg-warning",
+        "data-dismiss": "modal",
+        "data-value": "Cash",
+        text: "OK"
+    })
+    $('.modal-footer').html(btn);
+    setTimeout(function () {
+        $("#modal-warning-ok").focus();
+    }, 150);
+}
